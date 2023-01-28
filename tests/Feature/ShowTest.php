@@ -22,7 +22,7 @@ it('has movies page', function () {
         ->assertOk()
         ->assertInertia(fn(Assert $page) => $page
             ->component('Movies/Index')
-            ->has('movies', 3, fn($page) => $page
+            ->has('movies.data', 3, fn($page) => $page
                 ->whereAll([
                     'title' => $movies->first()->title,
                     'year' => $movies->first()->year,

@@ -14,7 +14,7 @@ class MovieController extends Controller
     public function __invoke(Request $request): Response
     {
         return inertia('Movies/Index', [
-            'movies' => Show::query()->get(),
+            'movies' => Show::query()->paginate(24),
         ]);
     }
 }
