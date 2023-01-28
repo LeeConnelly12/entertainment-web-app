@@ -23,6 +23,7 @@ class ShowFactory extends Factory
             'rating' => 'PG',
             'is_bookmarked' => fake()->boolean(),
             'is_trending' => fake()->boolean(),
+            'category' => ShowCategory::cases()[fake()->numberBetween(0,1)],
         ];
     }
 
