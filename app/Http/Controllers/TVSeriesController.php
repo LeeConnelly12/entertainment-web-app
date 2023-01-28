@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class TVSeriesController extends Controller
 {
     /**
-     * Dislpay a listing of TV series.
+     * Display a listing of TV series.
      */
     public function __invoke(Request $request): Response
     {

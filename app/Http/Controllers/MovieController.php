@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MovieController extends Controller
 {
     /**
-     * Dislpay a listing of movies.
+     * Display a listing of movies.
      */
     public function __invoke(Request $request): Response
     {
