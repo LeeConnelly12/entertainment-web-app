@@ -29,4 +29,12 @@ class Show extends Model
     {
         return $query->where('category', ShowCategory::MOVIE);
     }
+
+    /**
+     * Scope a query to only include TV series.
+     */
+    public function scopeTVSeries(Builder $query): Builder
+    {
+        return $query->where('category', ShowCategory::TVSERIES);
+    }
 }

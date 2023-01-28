@@ -39,4 +39,18 @@ class ShowFactory extends Factory
             ];
         });
     }
+
+    /**
+     * Indicate that the show is a TV series.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function tvseries()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'category' => ShowCategory::TVSERIES,
+            ];
+        });
+    }
 }

@@ -1,10 +1,11 @@
 <?php
 
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\TVSeriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,10 @@ use Inertia\Inertia;
 
 Route::get('/movies', MovieController::class)
     ->name('movies')
+    ->middleware('auth');
+
+Route::get('/tv-series', TVSeriesController::class)
+    ->name('tv-series')
     ->middleware('auth');
 
 Route::get('/', function () {
