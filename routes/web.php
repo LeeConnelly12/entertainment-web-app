@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TVSeriesController;
+use App\Http\Controllers\BookmarkedShowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,14 @@ Route::get('/movies', MovieController::class)
 
 Route::get('/tv-series', TVSeriesController::class)
     ->name('tv-series')
+    ->middleware('auth');
+
+Route::put('/shows/{show}/bookmark', [BookmarkedShowController::class, 'update'])
+    ->name('shows.bookmark')
+    ->middleware('auth');
+
+Route::delete('/shows/{show}/unbookmark', [BookmarkedShowController::class, 'destroy'])
+    ->name('shows.unbookmark')
     ->middleware('auth');
 
 Route::get('/', function () {

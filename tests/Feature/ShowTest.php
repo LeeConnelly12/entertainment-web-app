@@ -7,6 +7,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
+use function Pest\Laravel\put;
+use function Pest\Laravel\delete;
 
 uses(RefreshDatabase::class);
 
@@ -56,4 +58,30 @@ it('has tv series page', function () {
                     ->etc(),
                 )
         );
+});
+
+it('can bookmark a show', function () {
+    $show = Show::factory()->create([
+        'is_bookmarked' => false,
+    ]);
+
+    put('/shows/' . $show->id . '/bookmark')
+        ->assertNoContent();
+
+    $show->refresh();
+
+    expect($show->is_bookmarked)->toBeTrue();
+});
+
+it('can unbookmark a show', function () {
+    $show = Show::factory()->create([
+        'is_bookmarked' => true,
+    ]);
+
+    delete('/shows/' . $show->id . '/unbookmark')
+        ->assertNoContent();
+
+    $show->refresh();
+
+    expect($show->is_bookmarked)->toBeFalse();
 });
