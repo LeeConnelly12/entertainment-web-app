@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Show;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class BookmarkedShowController extends Controller

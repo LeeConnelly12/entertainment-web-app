@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Show;
-use Inertia\Response;
 use Illuminate\Http\Request;
+use Inertia\Response;
 
 class MovieController extends Controller
 {

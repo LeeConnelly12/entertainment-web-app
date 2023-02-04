@@ -6,9 +6,9 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\delete;
 use function Pest\Laravel\get;
 use function Pest\Laravel\put;
-use function Pest\Laravel\delete;
 
 uses(RefreshDatabase::class);
 
@@ -22,9 +22,9 @@ it('has movies page', function () {
 
     get('/movies')
         ->assertOk()
-        ->assertInertia(fn(Assert $page) => $page
+        ->assertInertia(fn (Assert $page) => $page
             ->component('Movies/Index')
-            ->has('movies.data', 3, fn($page) => $page
+            ->has('movies.data', 3, fn ($page) => $page
                 ->whereAll([
                     'title' => $movies->first()->title,
                     'year' => $movies->first()->year,
@@ -44,9 +44,9 @@ it('has tv series page', function () {
     get('/tv-series')
         ->assertOk()
         ->assertInertia(
-            fn(Assert $page) => $page
+            fn (Assert $page) => $page
                 ->component('TVSeries/Index')
-                ->has('tvseries.data',3, fn($page) => $page
+                ->has('tvseries.data', 3, fn ($page) => $page
                     ->whereAll([
                         'title' => $tvseries->first()->title,
                         'year' => $tvseries->first()->year,
@@ -65,7 +65,7 @@ it('can bookmark a show', function () {
         'is_bookmarked' => false,
     ]);
 
-    put('/shows/' . $show->id . '/bookmark')
+    put('/shows/'.$show->id.'/bookmark')
         ->assertNoContent();
 
     $show->refresh();
@@ -78,7 +78,7 @@ it('can unbookmark a show', function () {
         'is_bookmarked' => true,
     ]);
 
-    delete('/shows/' . $show->id . '/unbookmark')
+    delete('/shows/'.$show->id.'/unbookmark')
         ->assertNoContent();
 
     $show->refresh();

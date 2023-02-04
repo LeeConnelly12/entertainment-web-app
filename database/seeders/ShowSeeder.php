@@ -5,9 +5,7 @@ namespace Database\Seeders;
 use App\Enums\ShowCategory;
 use App\Models\Show;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ShowSeeder extends Seeder
 {
