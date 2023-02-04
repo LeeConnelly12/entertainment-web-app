@@ -21,6 +21,9 @@ return new class extends Migration
             $table->boolean('is_bookmarked')->default(false);
             $table->boolean('is_trending')->default(false);
             $table->tinyInteger('category');
+            $table->string('thumbnail_small', 100);
+            $table->string('thumbnail_medium', 100);
+            $table->string('thumbnail_large', 100);
             $table->timestamps();
         });
     }

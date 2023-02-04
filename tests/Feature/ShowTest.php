@@ -32,6 +32,9 @@ it('has movies page', function () {
                     'rating' => $movies->first()->rating,
                     'is_bookmarked' => $movies->first()->is_bookmarked,
                     'is_trending' => $movies->first()->is_trending,
+                    'thumbnail_small' => $movies->first()->thumbnail_small,
+                    'thumbnail_medium' => $movies->first()->thumbnail_medium,
+                    'thumbnail_large' => $movies->first()->thumbnail_large,
                 ])
                 ->etc(),
             )
@@ -54,6 +57,9 @@ it('has tv series page', function () {
                         'rating' => $tvseries->first()->rating,
                         'is_bookmarked' => $tvseries->first()->is_bookmarked,
                         'is_trending' => $tvseries->first()->is_trending,
+                        'thumbnail_small' => $tvseries->first()->thumbnail_small,
+                        'thumbnail_medium' => $tvseries->first()->thumbnail_medium,
+                        'thumbnail_large' => $tvseries->first()->thumbnail_large,
                     ])
                     ->etc(),
                 )

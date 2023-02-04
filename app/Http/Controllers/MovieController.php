@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ShowResource;
 use App\Models\Show;
 use Illuminate\Http\Request;
 use Inertia\Response;
@@ -13,8 +14,10 @@ class MovieController extends Controller
      */
     public function __invoke(Request $request): Response
     {
+        $movies = Show::query()->movies()->paginate(24);
+
         return inertia('Movies/Index', [
-            'movies' => Show::query()->movies()->paginate(24),
+            'movies' => ShowResource::collection($movies),
         ]);
     }
 }
