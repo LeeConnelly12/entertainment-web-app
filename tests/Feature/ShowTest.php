@@ -35,6 +35,8 @@ it('has movies page', function () {
                     'thumbnail_small' => $movies->first()->thumbnail_small,
                     'thumbnail_medium' => $movies->first()->thumbnail_medium,
                     'thumbnail_large' => $movies->first()->thumbnail_large,
+                    'thumbnail_trending_small' => $movies->first()->thumbnail_trending_small,
+                    'thumbnail_trending_large' => $movies->first()->thumbnail_trending_large,
                 ])
                 ->etc(),
             )
@@ -60,6 +62,8 @@ it('has tv series page', function () {
                         'thumbnail_small' => $tvseries->first()->thumbnail_small,
                         'thumbnail_medium' => $tvseries->first()->thumbnail_medium,
                         'thumbnail_large' => $tvseries->first()->thumbnail_large,
+                        'thumbnail_trending_small' => $tvseries->first()->thumbnail_trending_small,
+                        'thumbnail_trending_large' => $tvseries->first()->thumbnail_trending_large,
                     ])
                     ->etc(),
                 )

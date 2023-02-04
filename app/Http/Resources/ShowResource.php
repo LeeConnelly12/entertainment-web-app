@@ -24,6 +24,8 @@ class ShowResource extends JsonResource
             'thumbnail_small' => $this->thumbnail_small,
             'thumbnail_medium' => $this->thumbnail_medium,
             'thumbnail_large' => $this->thumbnail_large,
+            'thumbnail_trending_small' => $this->thumbnail_trending_small,
+            'thumbnail_trending_large' => $this->thumbnail_trending_large,
         ];
     }
 }

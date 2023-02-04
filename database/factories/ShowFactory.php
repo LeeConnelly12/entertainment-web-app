@@ -18,17 +18,21 @@ class ShowFactory extends Factory
     public function definition()
     {
         $title = fake()->text(25);
+        $slug = str($title)->slug();
+        $isTrending = fake()->boolean();
 
         return [
             'title' => $title,
             'year' => fake()->numberBetween(2000, 2020),
             'rating' => 'PG',
             'is_bookmarked' => fake()->boolean(),
-            'is_trending' => fake()->boolean(),
+            'is_trending' => $isTrending,
             'category' => ShowCategory::cases()[fake()->numberBetween(0, 1)],
-            'thumbnail_small' => str($title)->slug().'/regular/small.jpg',
-            'thumbnail_medium' => str($title)->slug().'/regular/medium.jpg',
-            'thumbnail_large' => str($title)->slug().'/regular/large.jpg',
+            'thumbnail_small' => '/images/'.$slug.'/regular/small.jpg',
+            'thumbnail_medium' => '/images/'.$slug.'/regular/medium.jpg',
+            'thumbnail_large' => '/images/'.$slug.'/regular/large.jpg',
+            'thumbnail_trending_small' => $isTrending ? '/images/'.$slug.'/trending/small.jpg' : null,
+            'thumbnail_trending_large' => $isTrending ? '/images/'.$slug.'/trending/large.jpg' : null,
         ];
     }
 

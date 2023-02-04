@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('thumbnail_small', 100);
             $table->string('thumbnail_medium', 100);
             $table->string('thumbnail_large', 100);
+            $table->string('thumbnail_trending_small', 100)->nullable();
+            $table->string('thumbnail_trending_large', 100)->nullable();
             $table->timestamps();
         });
     }

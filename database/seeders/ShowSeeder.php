@@ -35,6 +35,12 @@ class ShowSeeder extends Seeder
                 'thumbnail_small' => '/images/'.$slug.'/regular/small.jpg',
                 'thumbnail_medium' => '/images/'.$slug.'/regular/medium.jpg',
                 'thumbnail_large' => '/images/'.$slug.'/regular/large.jpg',
+                'thumbnail_trending_small' => $show['isTrending'] ?
+                    '/images/'.$slug.'/trending/small.jpg' :
+                    null,
+                'thumbnail_trending_large' => $show['isTrending'] ?
+                    '/images/'.$slug.'/trending/large.jpg' :
+                    null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
